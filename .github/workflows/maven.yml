@@ -34,18 +34,31 @@ jobs:
       run: mvn -B package --file pom.xml
 
       #set  up Node.js React frontend
-      -name: Set up Node.js
+      # -name: Set up Node.js
+      # uses: actions/setup-node@v3
+      # with:
+      #   node-version: '18'
+
+      # #Install dependencies and build React app
+      # -name: Install dependencies for React
+      # run: npm install
+      # working-directory: ./my-react-app
+      
+      # -name: Build project 
+      # run: npm run build
+
+          - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
-      #Install dependencies and build React app
-      -name: Install dependencies for React
+    - name: Install dependencies for React
       run: npm install
       working-directory: ./my-react-app
-      
-      -name: Build project 
+
+    - name: Build project 
       run: npm run build
+
 
       -name: Deployr to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.0

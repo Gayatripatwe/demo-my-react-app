@@ -1,0 +1,74 @@
+# #workflow for my-react-app
+
+# name: CI/CD for mu-react-app
+
+# on:
+# push:
+# branch: [main]
+# workflow_dispatch:
+
+# permissions:
+#     contents: write
+
+# jobs:
+#  build_and_deploy:
+#  runs-on: ubuntu-latest
+
+#  steps:
+#  - name: Checkout repository
+#   uses: actions/checkout@v3
+
+#   - name: Setup Node.js
+#     uses:  actions/setup-node@v3
+#     with:
+#     node-version: 20
+
+#    - name: Install dependencies
+#       run: npm install
+
+#     - name: Build Project
+#       run: npm run build
+
+#     - name: Deploy to GitHub Pages
+#       uses: JamesIves/github-pages-deploy-action@4.1.0
+#       with:
+#           branch: gh-pages
+#           folder: build    
+
+
+# Workflow for my-react-app
+
+name: CI/CD for my-react-app
+
+on:
+  push:
+    branches: [main]  # Corrected indentation and changed 'branch' to 'branches'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Corrected indentation
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Corrected indentation and added quotes around node version
+
+      - name: Install dependencies
+        run: npm install  # Corrected indentation
+
+      - name: Build Project
+        run: npm run build  # Corrected indentation
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build  # Corrected indentation
